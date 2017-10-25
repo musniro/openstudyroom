@@ -12,6 +12,9 @@ from allauth.account.views import LoginView, SignupView
 from machina.app import board
 
 urlpatterns = [
+
+    url(r'^tournament/', include('tournament.urls',namespace= "tournament")),
+
     url(r'^django-admin/', include(admin.site.urls)),
 
     url(r'^admin/', include(wagtailadmin_urls)),

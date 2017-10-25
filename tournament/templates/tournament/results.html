@@ -1,0 +1,56 @@
+{%extends "full_width.html"%}
+{% load static %}
+
+{% block title %} Tournament {% endblock %}
+
+{% block heading %}
+<script type="text/javascript" src="{%static 'jquery.bracket.min.js'%}"></script>
+<link rel="stylesheet" type="text/css" href="{%static 'jquery.bracket.min.css'%}" />
+{% endblock %}
+
+{% block content %}
+<div class="matchCallback">
+</div>
+<div class="bracket-cont" >
+	yehaa
+</div>
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+var saveData = {
+	"teams":[
+		["musniro","climu"],
+		["Pond_turtle",null],
+		["alemitrani",null],
+		["TBX",null]
+	],
+	"results":[
+		[
+			[[0,1,"game1"]], //round 1
+			[[1,0,"game2"],[1,0,"game3"]],  //round 2
+		]
+	]
+}
+saveData.teams.map(function(x){
+	x[0] = "<a href='https://openstudyroom.org/league/account/" + x[0] +"'>" + x[0] + "</a>";
+	x[1] = "<a href='https://openstudyroom.org/league/account/" + x[1] +"'>" + x[1] + "</a>";
+	})
+
+
+function onclick(data){
+	$('#matchCallback').text(data);
+}
+
+$('.bracket-cont').bracket({
+	init : saveData,
+	onMatchClick : onclick
+})
+
+
+
+</script>
+
+{% endblock %}

@@ -97,8 +97,10 @@ INSTALLED_APPS = [
 
     'fullcalendar',
 
-    'community'
+    'community',
 
+    #tournaments
+    'tournament'
 ]+ get_machina_apps()
 
 MIDDLEWARE = [
